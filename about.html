@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us | AL Dawlia</title>
+
+<style>
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+margin:0;
+font-family:system-ui;
+background:#050505;
+color:#fff;
+overflow-x:hidden;
+}
+
+/* ================= NAVBAR ================= */
+.navbar{
+position:fixed;
+top:0;
+width:100%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:16px 60px;
+background:rgba(0,0,0,.35);
+backdrop-filter:blur(20px);
+-webkit-backdrop-filter:blur(20px);
+border-bottom:1px solid rgba(212,175,55,.15);
+z-index:9999;
+transition:.4s;
+box-sizing:border-box;
+}
+
+.navbar.scrolled{
+background:rgba(0,0,0,.75);
+border-bottom:1px solid rgba(212,175,55,.35);
+box-shadow:0 10px 40px rgba(0,0,0,.4);
+}
+
+.logo{
+color:#d4af37;
+font-weight:800;
+letter-spacing:1px;
+}
+
+.nav-links{
+display:flex;
+align-items:center;
+gap:10px;
+margin-left:auto;
+}
+
+.nav-links a{
+padding:10px 16px;
+border-radius:30px;
+text-decoration:none;
+color:#fff;
+background:rgba(255,255,255,.06);
+border:1px solid rgba(255,255,255,.08);
+transition:.3s;
+font-size:14px;
+}
+
+.nav-links a:hover{
+background:#d4af37;
+color:#000;
+transform:translateY(-2px);
+}
+
+.lang-btn{
+padding:8px 16px;
+border-radius:25px;
+border:1px solid rgba(212,175,55,.4);
+background:rgba(255,255,255,.05);
+color:#fff;
+cursor:pointer;
+transition:.3s;
+}
+
+.lang-btn:hover{
+background:#d4af37;
+color:#000;
+}
+
+/* RTL navbar fix */
+body[dir="rtl"] .navbar{
+flex-direction:row-reverse;
+}
+
+body[dir="rtl"] .nav-links{
+margin-left:0;
+margin-right:auto;
+}
+
+/* ================= HERO ================= */
+.hero{
+padding:140px 20px 80px;
+text-align:center;
+}
+
+.hero h1{
+font-size:50px;
+margin:0;
+}
+
+.hero span{
+color:#d4af37;
+}
+
+/* ================= SECTION ================= */
+.section{
+padding:80px 20px;
+text-align:center;
+}
+
+.title{
+color:#d4af37;
+font-size:40px;
+margin-bottom:40px;
+}
+
+/* ================= ABOUT ================= */
+.aboutGrid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:20px;
+}
+
+.box{
+background:#111;
+padding:25px;
+border-radius:15px;
+border:1px solid #222;
+transition:.3s;
+}
+
+.box:hover{
+transform:translateY(-8px);
+border-color:#d4af37;
+}
+
+/* ================= IMAGES FIX ================= */
+.imageSection{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:15px;
+}
+
+.imageCard{
+height:350px;
+overflow:hidden;
+border-radius:15px;
+background:#111;
+border:1px solid #222;
+display:flex;
+align-items:center;
+justify-content:center;
+}
+
+.imageCard img{
+width:100%;
+height:100%;
+object-fit:contain;
+background:#111;
+}
+.imageCard img:hover{
+transform:scale(1.05);
+}
+
+/* ================= TIMELINE FIX ================= */
+.timeline{
+position:relative;
+max-width:800px;
+margin:auto;
+}
+
+.timeline::before{
+content:"";
+position:absolute;
+left:50%;
+top:0;
+width:2px;
+height:100%;
+background:#d4af37;
+transform:translateX(-50%);
+}
+
+body[dir="rtl"] .timeline::before{
+left:auto;
+right:50%;
+transform:translateX(50%);
+}
+
+.item{
+padding:20px;
+width:50%;
+position:relative;
+box-sizing:border-box;
+}
+
+.left{left:0;}
+.right{left:50%;}
+
+/* RTL fix */
+body[dir="rtl"] .left{
+left:auto;
+right:0;
+text-align:right;
+}
+
+body[dir="rtl"] .right{
+left:auto;
+right:50%;
+text-align:right;
+}
+
+/* ================= ICONS ================= */
+.icons{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:15px;
+}
+
+.iconBox{
+background:#111;
+padding:20px;
+border-radius:15px;
+border:1px solid #222;
+transition:.3s;
+}
+
+.iconBox:hover{
+transform:translateY(-6px);
+border-color:#d4af37;
+}
+
+/* ================= MOBILE ================= */
+@media(max-width:768px){
+
+.hero h1{font-size:32px;}
+
+.timeline::before{
+left:10px;
+transform:none;
+}
+
+.item{
+width:100%;
+left:0 !important;
+text-align:left !important;
+}
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+<div class="logo">AL DAWLIA</div>
+
+<div class="nav-links">
+<a href="index.html" data-key="home">Home</a>
+<a href="about.html" data-key="about">About</a>
+<a href="whyus.html" data-key="whyus">Why Us</a>
+<button id="langBtn" class="lang-btn">AR</button>
+</div>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+<h1 data-key="heroTitle">About <span>Our Company</span></h1>
+<p data-key="heroSub">Engineering • Quality • Trust</p>
+</div>
+
+<!-- ABOUT -->
+<section class="section">
+<h2 class="title" data-key="who">Who We Are</h2>
+
+<div class="aboutGrid">
+<div class="box" data-key="box1"></div>
+<div class="box" data-key="box2"></div>
+<div class="box" data-key="box3"></div>
+</div>
+</section>
+
+<!-- IMAGES -->
+<section class="section">
+<h2 class="title" data-key="work">Our Work</h2>
+
+<div class="imageSection">
+<div class="imageCard"><img src="images/p21.jpg"></div>
+<div class="imageCard"><img src="images/p20.jpg"></div>
+<div class="imageCard"><img src="images/p3.jpg"></div>
+</div>
+</section>
+
+<!-- TIMELINE -->
+<section class="section">
+<h2 class="title" data-key="journey">Our Journey</h2>
+
+<div class="timeline">
+
+<div class="item left">
+<h3 data-key="start">Start</h3>
+<p data-key="startp"></p>
+</div>
+
+<div class="item right">
+<h3 data-key="growth">Growth</h3>
+<p data-key="growthp"></p>
+</div>
+
+<div class="item left">
+<h3 data-key="today">Today</h3>
+<p data-key="todayp"></p>
+</div>
+
+</div>
+</section>
+
+<!-- ICONS -->
+<section class="section">
+<h2 class="title" data-key="offer">What We Offer</h2>
+
+<div class="icons">
+<div class="iconBox" data-key="c1"></div>
+<div class="iconBox" data-key="c2"></div>
+<div class="iconBox" data-key="c3"></div>
+<div class="iconBox" data-key="c4"></div>
+</div>
+</section>
+
+<script>
+
+const translations={
+en:{
+home:"Home",
+about:"About",
+whyus:"Why Us",
+heroTitle:"About Our Company",
+heroSub:"Engineering • Quality • Trust",
+who:"Who We Are",
+box1:"We are a professional swimming pool and water treatment company delivering high-quality engineering solutions in Egypt.",
+box2:"We focus on design, construction, maintenance, and long-term service contracts.",
+box3:"We ensure safety, durability, and premium quality in every project.",
+work:"Our Work",
+journey:"Our Journey",
+start:"Start",
+startp:"Company established with a vision for premium pool services.",
+growth:"Growth",
+growthp:"Expanded to multiple residential and hotel projects.",
+today:"Today",
+todayp:"Trusted name in Egypt pool engineering.",
+offer:"What We Offer",
+c1:"🏊 Long-Term Contracts",
+c2:"🧪 Water Treatment",
+c3:"🧼 Cleaning Services",
+c4:"🔧 Maintenance"
+},
+ar:{
+home:"الرئيسية",
+about:"من نحن",
+whyus:"لماذا نحن",
+heroTitle:"عن شركتنا",
+heroSub:"هندسة • جودة • ثقة",
+who:"من نحن",
+box1:"نحن شركة متخصصة في حمامات السباحة ومعالجة المياه.",
+box2:"نركز على التصميم والتنفيذ والصيانة والعقود طويلة المدى.",
+box3:"نضمن الأمان والجودة العالية في كل مشروع.",
+work:"أعمالنا",
+journey:"رحلتنا",
+start:"البداية",
+startp:"تأسست الشركة برؤية لخدمات حمامات السباحة.",
+growth:"النمو",
+growthp:"التوسع إلى مشاريع متعددة.",
+today:"اليوم",
+todayp:"أحد الأسماء الموثوقة في مصر.",
+offer:"ماذا نقدم",
+c1:"🏊 عقود طويلة المدى",
+c2:"🧪 معالجة المياه",
+c3:"🧼 خدمات التنظيف",
+c4:"🔧 الصيانة"
+}
+};
+
+const btn=document.getElementById("langBtn");
+
+function setLang(lang){
+document.querySelectorAll("[data-key]").forEach(el=>{
+const key=el.getAttribute("data-key");
+if(translations[lang][key]){
+el.textContent=translations[lang][key];
+}
+});
+
+document.documentElement.lang=lang;
+document.body.dir=(lang==="ar")?"rtl":"ltr";
+btn.textContent=(lang==="ar")?"EN":"AR";
+}
+
+btn.onclick=()=>{
+setLang(document.documentElement.lang==="ar"?"en":"ar");
+};
+
+window.onload=()=>{
+setLang(localStorage.getItem("siteLang")||"en");
+};
+
+window.addEventListener("scroll",()=>{
+document.querySelector(".navbar")
+.classList.toggle("scrolled",window.scrollY>20);
+});
+
+</script>
+
+</body>
+</html>
